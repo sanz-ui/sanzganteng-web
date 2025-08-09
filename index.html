@@ -6,54 +6,74 @@
     <title>Sanzganteng</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1a0033, #4b0082);
+            background: linear-gradient(135deg, #5e00ff, #ff00c3);
             color: white;
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
-            animation: fadeIn 1.5s ease-in-out;
+            padding: 0;
+            margin: 0;
         }
         h1 {
-            font-size: 2.5em;
-            text-shadow: 0 0 20px #ff00ff, 0 0 30px #9900ff;
+            margin-top: 60px;
+            font-size: 3em;
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff; }
+            to { text-shadow: 0 0 30px #fff, 0 0 50px #00ffff; }
         }
         p {
             font-size: 1.2em;
-            margin-bottom: 20px;
         }
-        a {
-            color: #ffccff;
-            text-decoration: none;
-            font-weight: bold;
+        .social {
+            margin-top: 20px;
+            font-size: 1.1em;
         }
         .btn {
-            background: #ff00cc;
-            border: none;
-            padding: 15px 25px;
-            font-size: 1.1em;
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
-            transition: 0.3s;
+            display: inline-block;
+            background: #00ffcc;
+            color: black;
+            padding: 12px 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
         }
         .btn:hover {
-            background: #cc0099;
-            transform: scale(1.05);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: #00bfa5;
         }
     </style>
 </head>
 <body>
+
     <h1>Sanzganteng</h1>
     <p>buy file, nokos, suntik sosmed pm</p>
-    <p>GitHub: <a href="https://github.com/sanz-ui" target="_blank">sanz-ui</a></p>
-    <p>TikTok: @alstrasanz_022</p>
-    <a href="https://wa.me/6288971548048" target="_blank">
-        <button class="btn">💬 Beli via WhatsApp</button>
-    </a>
+
+    <div class="social">
+        <p>GitHub: <a href="https://github.com/sanz-ui" target="_blank" style="color:yellow;">github.com/sanz-ui</a></p>
+        <p>TikTok: <span style="color:yellow;">@alstrasanz_022</span></p>
+    </div>
+
+    <a href="https://wa.me/6288971548048" class="btn" id="buyBtn">💬 Beli Sekarang</a>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let musicPlayed = false;
+        const buyBtn = document.getElementById('buyBtn');
+        const bgMusic = document.getElementById('bgMusic');
+
+        buyBtn.addEventListener('click', () => {
+            if (!musicPlayed) {
+                bgMusic.play();
+                musicPlayed = true;
+            }
+        });
+    </script>
+
 </body>
-  </html>
+</html>
